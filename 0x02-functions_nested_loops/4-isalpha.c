@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * main - The entry point of the program.
- * This program checks for alphabetic character.
- * isalpha - checks if a character is alphabetic.
- * @c: The alphebet being printed.
+ * _isalpha - Checks if a character is alphabetic.
+ * @c: The character to be checked
  *
- * Return: Always 0 (Success)
+ * Return: 1 if character is letter, lowercase or uppercase alphabet
+ *	otherwise return 0
  */
 
 int _isalpha(int c)
