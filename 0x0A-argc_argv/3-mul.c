@@ -27,5 +27,6 @@ int main(int argc, char *argv[])
 		}
 		printf("%d\n", mult);
 	}
+	return (0);
 }
 
