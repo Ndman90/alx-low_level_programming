@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 /**
  * main - Prints the arguments name, followed by a new line.
