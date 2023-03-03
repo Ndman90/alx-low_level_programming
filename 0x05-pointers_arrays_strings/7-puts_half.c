@@ -21,9 +21,9 @@ void puts_half(char *str)
 	for (j = 0; j <= l / 2; j++)
 	{
 		if (l % 2 == 0)
-			putchar(str[l / 2 + j]);
+			_putchar(str[l / 2 + j]);
 		else
-			putchar(str[(l - 1) / 2 + j]);
+			_putchar(str[(l - 1) / 2 + j]);
 	}
-	putchar('\n');
+	_putchar('\n');
 }
