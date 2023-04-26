@@ -9,9 +9,10 @@ void *malloc_checked(unsigned int b)
 {
 	void *maPtr;
 
-	maPtr = malloc(b * sizeof(int));
+	maPtr = malloc(b);
 	if (maPtr == NULL)
 		exit(98);
 	else
 		return (maPtr);
+	free(maPtr);
 }
