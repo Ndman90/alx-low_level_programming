@@ -3,10 +3,10 @@
 
 /**
  * _strlen - calculate and return string length
- * @string: string
+ * @string: string to check
  * Return: string length
  */
-unsigned int _strlen(char *string)
+int _strlen(char *string)
 {
 	int i = 0, count = 0;
 
@@ -27,9 +27,10 @@ unsigned int _strlen(char *string)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j;
+	int i, j, num;
 	char *maPtr;
 
+	num = n;
 	maPtr = malloc((_strlen(s1) + n * sizeof(char)) + 1);
 	if (maPtr == NULL)
 		return (NULL);
@@ -41,9 +42,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		maPtr[i] = s1[i];
 	}
-	for (j = 0; j < n; j++)
+	for (j = 0; j < num; j++)
 	{
-		if (n >= _strlen(s2))
+		if (num >= _strlen(s2))
 		{
 			maPtr[_strlen(s1) + j] = *s2;
 			s2++;
