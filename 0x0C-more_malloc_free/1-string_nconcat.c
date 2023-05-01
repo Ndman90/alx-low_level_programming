@@ -2,6 +2,23 @@
 #include "main.h"
 
 /**
+ * _strlen - calculate and return string length
+ * @string: string
+ * Return: string length
+ */
+int _strlen(char *string)
+{
+	int i = 0, count = 0;
+
+	while (string[i] != '\0')
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
+/**
  * string_nconcat - concatenate s1 and n bytes of s2; return ptr to string
  * @s1: string 1
  * @s2: string 2
@@ -10,21 +27,8 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int count1 = 0, count2 = 0, i = 0, lens1, lens2, j = 0;
+	int i, j;
 	char *maPtr;
-
-	while (s1[i] != '\0')
-	{
-		count1++;
-		i++;
-	}
-	lens1 = count1;
-	while (s2[j] != '\0')
-	{
-		count2++;
-		j++;
-	}
-	lens2 = count2;
 
 	maPtr = malloc((lens1 + n * sizeof(char)) + 1);
 	if (maPtr == NULL)
