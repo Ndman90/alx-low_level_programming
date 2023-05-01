@@ -31,7 +31,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	int i, j;
 	char *maPtr;
 
-	maPtr = malloc((lens1 + n * sizeof(char)) + 1);
+	maPtr = malloc((_strlen(s1) + n * sizeof(char)) + 1);
 	if (maPtr == NULL)
 		return (NULL);
 	if (s1 == NULL)
@@ -44,16 +44,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (j = 0; j < n; j++)
 	{
-		if (n >= lens2)
+		if (n >= _strlen(s2))
 		{
-			maPtr[lens1 + j] = *s2;
+			maPtr[_strlen(s1) + j] = *s2;
 			s2++;
 		}
 		else
 		{
-			maPtr[lens1 + j] = s2[j];
+			maPtr[_strlen(s1) + j] = s2[j];
 		}
 	}
-	maPtr[lens1 + j] = '\0';
+	maPtr[_strlen(s1) + j] = '\0';
 	return (maPtr);
 }
