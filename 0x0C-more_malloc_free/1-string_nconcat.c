@@ -7,7 +7,7 @@
  * @string: string
  * Return: string length
  */
-int _strlen(char *string)
+unsigned int _strlen(char *string)
 {
 	int i = 0, count = 0;
 
@@ -28,7 +28,7 @@ int _strlen(char *string)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i, j;
+	unsigned int i, j;
 	char *maPtr;
 
 	maPtr = malloc((_strlen(s1) + n * sizeof(char)) + 1);
