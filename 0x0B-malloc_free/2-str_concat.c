@@ -10,35 +10,42 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr;
-	int i, j, x, y, len1, len2, count1 = 0, count2 = 0;
+	char *maPtr;
+	int count1 = 0, count2 = 0,  i = 0, j = 0, len1, len2;
 
-	while(s1[i] != '\0')
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	while (s1[i] != '\0')
 	{
 		count1++;
 		i++;
 	}
 	len1 = count1;
 
-	while(s2[j] != '\0')
+	while (s2[j] != '\0')
 	{
 		count2++;
 		j++;
 	}
 	len2 = count2;
 
-	ptr = (char *)malloc(len1 + len2 * sizeof(char));
-	if(ptr == NULL)
-		return(NULL);
-	if(s1 == NULL || s2 == NULL)
-		return ("");
-	for(x = 0; s1[x] != '\0'; x++)
-		*(ptr + x) = s1[x];
-	for(y = 0; s2[y] != '\0'; y++)
+	maPtr = malloc((len1 + len2 * sizeof(char)) + 1);
+
+	if (maPtr == NULL)
+		return (NULL);
+
+	for (i = 0; i < len1; i++)
 	{
-		*(ptr + y + len1) = s2[y];
+		maPtr[i] = s1[i];
 	}
-	*(ptr + y + len1) = '\0';
-	return (ptr);
-	free(ptr);
+	for (j = 0; j < len2; j++)
+	{
+		maPtr[len1 + j] = s2[j];
+	}
+	maPtr[len1 + j] = '\0';
+	return (maPtr);
+	free(maPtr);
 }
