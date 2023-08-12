@@ -28,30 +28,30 @@ int _strlen(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	int i, j;
-	int num = n;
+	int num, len, i, j;
 
-	if (s1 == NULL)
-	       s1 = ""; 
+	num = n;
+
+	if (s1 == NULL) /* account for NULL strings */
+		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	if (num < 0)
+	if (num < 0) /* account for negative n bytes */
 		return (NULL);
-	ptr = malloc(_strlen(s1) + num * sizeof(int) + 1);
+	if (num >= _strlen(s2)) /* account for n too big */
+		num = _strlen(s2);
+
+	len = _strlen(s1) + num + 1; /* +1 to account for null pointer */
+
+	ptr = malloc(sizeof(*ptr) * len); /* malloc and check for error */
 	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; s1[i] != '\0'; i++)
-		*(ptr + i) = s1[i];
-	if (num <= _strlen(s2))
-	{
-		for (j = 0; j < num; j++)
-			*(ptr + j + _strlen(s1)) = s2[j];
-	}
-	else
-	{
-		for (j = 0; s2[j] != '\0'; j++)
-			*(ptr + j + _strlen(s1)) = s2[j];
-	}
-	*(ptr + j + _strlen(s1)) = '\0';
+
+	for (i = 0; s1[i] != '\0'; i++) /* concat */
+		ptr[i] = s1[i];
+	for (j = 0; j < num; j++)
+		ptr[i + j] = s2[j];
+	ptr[i + j] = '\0';
+
 	return (ptr);
 }
