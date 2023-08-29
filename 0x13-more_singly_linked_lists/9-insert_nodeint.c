@@ -24,10 +24,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	nodecount = count;
 
-	if (node_data < idx)
-		return (NULL);
 	for (i = 0; i < idx; i++)
 	{
+		if (node_data < idx)
+			return (NULL);
 		prevnode = nextnode;
 		nextnode = nextnode->next;
 	}
