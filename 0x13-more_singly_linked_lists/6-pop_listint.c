@@ -10,9 +10,10 @@ int pop_listint(listint_t **head)
 	listint_t *tracker;
 	int n;
 
+	tracker = *head;
+
 	if (head == NULL)
 		return (0);
-	tracker = *head;
 	*head = (*head)->next;
 	n = tracker->n;
 	free(tracker);
