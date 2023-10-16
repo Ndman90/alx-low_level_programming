@@ -1,2 +1,1 @@
-0x18-dynamic_libraries
-Details loading ...
+ALX Low Level Programmning
